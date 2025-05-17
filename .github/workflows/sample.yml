@@ -2,10 +2,10 @@ name: Print Message
 on:
   push:
     branches:
-      - main
+      - master
   pull_request:
     branches:
-      - main
+      - master
 
 jobs:
   print_message:
@@ -14,7 +14,7 @@ jobs:
     steps:
       - name: Print Push Message
         if: github.event_name == 'push'
-        run: echo "new Push Detected on main branch"
+        run: echo "new Push Detected on master branch"
       - name: Print Pull Request Message
         if: github.event_name ==  'pull_request'
-        run: echo "new Pull Request Detected on main branch"
+        run: echo "new Pull Request Detected on master branch"
