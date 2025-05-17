@@ -1,0 +1,31 @@
+name: Print Commit Message
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  print_message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: check out code
+        uses: actions/checkout@v4
+
+      - name: Print Commit Message (push)
+        if: github.event_name == 'push'
+        run: |
+          echo "🔹diam Commit message from GitHub context:"
+          echo "${{ github.event.head_commit.message }}"
+          echo "🔹 Commit message from git log:"
+          
+
+      - name: Print Commit Message (pull request)
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "🔸 Latest commit in the pull request:"
+          git fetch origin ${{ github.event.pull_request.head.ref }}
+          git log origin/${{ github.event.pull_request.head.ref }} -1 --pretty=%B
