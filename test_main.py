@@ -1,6 +1,4 @@
-
-class TestMain(unittest.TestCase):
-    import unittest
+import unittest
 from main import add
 
 class TestMain(unittest.TestCase):
@@ -10,6 +8,7 @@ class TestMain(unittest.TestCase):
         
 #         import unittest
 # from main import add, subtract, multiply, divide
+# class TestMain(unittest.TestCase):
 
     # def test_add(self):
     #     self.assertEqual(add(1, 2), 3)
