@@ -1,0 +1,20 @@
+name: Print Message
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  print_message:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Print Push Message
+        if: github.event_name == 'push'
+        run: echo "new Push Detected on main branch"
+      - name: Print Pull Request Message
+        if: github.event_name ==  'pull_request'
+        run: echo "new Pull Request Detected on main branch"
